@@ -26,6 +26,20 @@ export class SiteguideService {
     }
 
     /**
+     * Next step
+     */
+    public next(): void {
+        this.tour.next();
+    }
+
+    /**
+     * Prev step
+     */
+    public prev(): void {
+        this.tour.prev();
+    }
+
+    /**
      * Add step to the tour
      * @param stepConfig step config data
      */
@@ -47,19 +61,6 @@ export class SiteguideService {
     }
 
     /**
-     * Add step right after active one
-     * @param stepConfig step config data
-     */
-    public addNext(
-        stepConfig: TourStepConfig,
-        component: Type<any> | null = null,
-        template: TemplateRef<any> | null = null
-    ): void {
-        const config: TourStepConfig = this.updateStepConfig(stepConfig, component, template);
-        this.tour.addNext(config);
-    }
-
-    /**
      * Set tour config
      * @param config tour options
      */
@@ -67,6 +68,11 @@ export class SiteguideService {
         this.tour.setConfig(config);
     }
 
+    /**
+     * Creates a html element from custom component
+     * @param component custom component
+     * @returns component as html element
+     */
     private getComponentNativeElement(component: Type<any>): HTMLElement {
         const componentRef = createComponent(component, {
             environmentInjector: this._envInjector,
@@ -77,6 +83,13 @@ export class SiteguideService {
         return nativeElement;
     }
 
+    /**
+     * Update step content by custom component or template
+     * @param stepConfig base step config
+     * @param component custom component
+     * @param template custom template
+     * @returns updated step config with component or template
+     */
     private updateStepConfig(
         stepConfig: TourStepConfig,
         component: Type<any> | null,
