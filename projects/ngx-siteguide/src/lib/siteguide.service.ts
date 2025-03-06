@@ -40,6 +40,14 @@ export class SiteguideService {
     }
 
     /**
+     * Go to step by index
+     * @param index index to go
+     */
+    public goTo(index: number): void {
+        this.tour.goTo(index);
+    }
+
+    /**
      * Add step to the tour
      * @param stepConfig step config data
      */
