@@ -3,13 +3,8 @@ import { Tour, TourConfig, TourStepConfig } from 'siteguide.js';
 
 @Injectable()
 export class SiteguideService {
-    public readonly tour: Tour;
-
+    public readonly tour: Tour = new Tour({});
     private readonly _envInjector: EnvironmentInjector = inject(EnvironmentInjector);
-
-    constructor() {
-        this.tour = new Tour({});
-    }
 
     /**
      * Start tour
@@ -50,6 +45,8 @@ export class SiteguideService {
     /**
      * Add step to the tour
      * @param stepConfig step config data
+     * @param component component to use as step content
+     * @param template template to use as step content
      */
     public addStep(
         stepConfig: TourStepConfig,

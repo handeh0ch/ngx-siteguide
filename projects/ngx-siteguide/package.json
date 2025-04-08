@@ -1,12 +1,12 @@
 {
     "name": "ngx-siteguide",
-    "version": "17.2.4",
+    "version": "17.2.11",
     "peerDependencies": {
         "@angular/common": "^17.3.0",
         "@angular/core": "^17.3.0"
     },
     "dependencies": {
-        "siteguide.js": "^0.8.2",
+        "siteguide.js": "^0.10.0",
         "tslib": "^2.3.0"
     },
     "sideEffects": false
